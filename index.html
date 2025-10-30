@@ -79,14 +79,14 @@
         .logo-wrapper {
             width: 180px;
             height: 180px;
-            background: white;
+            background: transparent;
             border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 20px 60px rgba(198, 40, 40, 0.4);
+            padding: 0;
+            box-shadow: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 4px solid rgba(198, 40, 40, 0.2);
+            border: none;
         }
 
         .logo-wrapper img {
@@ -122,40 +122,108 @@
             font-weight: 400;
         }
 
-        .phone-reveal {
-            margin-top: 25px;
-            padding: 20px 30px;
-            background: rgba(198, 40, 40, 0.15);
-            border: 2px solid rgba(198, 40, 40, 0.3);
-            border-radius: 12px;
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .phone-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .phone-reveal-content {
+        .hero-actions {
+            margin-top: 35px;
             display: flex;
-            gap: 30px;
-            align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .phone-item {
+        .hero-btn {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.1em;
+            gap: 18px;
+            padding: 20px 28px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 14px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 2px solid transparent;
+        }
+
+        .hero-btn:hover {
+            transform: translateX(8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-color: #25D366;
+        }
+
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+        }
+
+        .whatsapp-btn .btn-icon {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        .whatsapp-btn .btn-label,
+        .whatsapp-btn .btn-value {
+            color: white;
+        }
+
+        .email-btn {
+            background: linear-gradient(135deg, #EA4335 0%, #C5221F 100%);
+        }
+
+        .email-btn:hover {
+            background: linear-gradient(135deg, #C5221F 0%, #A50E0E 100%);
+        }
+
+        .email-btn .btn-label,
+        .email-btn .btn-value {
+            color: white;
+        }
+
+        .save-btn {
+            background: linear-gradient(135deg, #c62828 0%, #8b1a1a 100%);
+        }
+
+        .save-btn:hover {
+            background: linear-gradient(135deg, #8b1a1a 0%, #6d1515 100%);
+        }
+
+        .save-btn .btn-label,
+        .save-btn .btn-value {
+            color: white;
+        }
+
+        .phone-btn {
+            background: linear-gradient(135deg, #4285F4 0%, #1967D2 100%);
+        }
+
+        .phone-btn:hover {
+            background: linear-gradient(135deg, #1967D2 0%, #174EA6 100%);
+        }
+
+        .phone-btn .btn-label,
+        .phone-btn .btn-value {
+            color: white;
+        }
+
+        .hero-btn .btn-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        .hero-btn .btn-label {
+            font-size: 0.85em;
             font-weight: 500;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
         }
 
-        .phone-icon {
-            font-size: 1.3em;
+        .hero-btn .btn-value {
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
         .content-section {
@@ -398,9 +466,16 @@
                 font-size: 2.5em;
             }
 
-            .phone-reveal-content {
-                flex-direction: column;
-                gap: 15px;
+            .hero-actions {
+                align-items: stretch;
+            }
+
+            .hero-btn {
+                justify-content: flex-start;
+            }
+
+            .hero-btn:hover {
+                transform: translateY(-4px);
             }
 
             .content-section {
@@ -478,9 +553,45 @@
                         <img src="https://i.ibb.co/b5NmVFpR/images.jpg" alt="Renovamotor Logo" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Cdefs%3E%3CradialGradient id=%22rg%22%3E%3Cstop offset=%220%25%22 stop-color=%22%23dc2626%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%23991b1b%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d=%22M100 20L110 30 120 30 125 25 130 30 140 30 150 20 160 30 180 50 190 60 190 80 180 90 190 100 190 120 180 130 190 140 190 160 180 170 160 190 150 200 140 190 130 190 125 195 120 190 110 190 100 200 90 190 80 190 75 195 70 190 60 190 50 200 40 190 20 170 10 160 10 140 20 130 10 120 10 100 20 90 10 80 10 60 20 50 40 30 50 20 60 30 70 30 75 25 80 30 90 30z%22 fill=%22%23555%22/%3E%3Ccircle cx=%22100%22 cy=%22100%22 r=%2260%22 fill=%22url(%23rg)%22/%3E%3Ctext x=%22100%22 y=%22120%22 font-size=%2250%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-weight=%22bold%22%3ERM%3C/text%3E%3C/svg%3E';">
                     </div>
                     <div class="hero-text">
-                        <div class="title">Gerente General</div>
+                        <div class="title">Director</div>
                         <h1>Juan Diego Velasquez</h1>
                         <div class="company">Renovamotor</div>
+                        
+                        <div class="hero-actions">
+                            <a href="https://wa.me/573136861590" target="_blank" class="hero-btn whatsapp-btn">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                                <div>
+                                    <div class="btn-label">WhatsApp Colombia</div>
+                                    <div class="btn-value">+57 313 686 1590</div>
+                                </div>
+                            </a>
+                            
+                            <a href="mailto:juanvelasquez@renovamotor.com" class="hero-btn email-btn">
+                                <span class="btn-icon">✉️</span>
+                                <div>
+                                    <div class="btn-label">Email</div>
+                                    <div class="btn-value">juanvelasquez@renovamotor.com</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#" id="downloadVCardHero" class="hero-btn save-btn">
+                                <span class="btn-icon">💾</span>
+                                <div>
+                                    <div class="btn-label">Guardar Contacto</div>
+                                    <div class="btn-value">Agregar a tu agenda</div>
+                                </div>
+                            </a>
+                            
+                            <a href="tel:+13322310148" class="hero-btn phone-btn">
+                                <span class="btn-icon">📞</span>
+                                <div>
+                                    <div class="btn-label">Teléfono USA</div>
+                                    <div class="btn-value">+1 332 231 0148</div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -516,16 +627,6 @@
                         </div>
                         <div class="contact-value">
                             Renovamotor
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-label">
-                            <span class="contact-icon">💼</span>
-                            Posición
-                        </div>
-                        <div class="contact-value">
-                            Gerente General
                         </div>
                     </div>
 
@@ -574,74 +675,4 @@
                     <div class="divider"></div>
                     
                     <div class="action-buttons">
-                        <a href="tel:+573136861590" class="btn btn-secondary">
-                            <span class="btn-icon">📱</span>
-                            <span class="btn-text">Llamar Colombia</span>
-                        </a>
-                        <a href="tel:+13322310148" class="btn btn-secondary">
-                            <span class="btn-icon">☎️</span>
-                            <span class="btn-text">Llamar USA</span>
-                        </a>
-                        <a href="mailto:juanvelasquez@renovamotor.com" class="btn btn-secondary">
-                            <span class="btn-icon">✉️</span>
-                            <span class="btn-text">Enviar Email</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <footer>
-                <p>&copy; 2025 <a href="https://www.renovamotor.com" target="_blank">Renovamotor</a> - Todos los derechos reservados</p>
-            </footer>
-        </div>
-    </div>
-
-    <script>
-        // Generar y descargar vCard
-        document.getElementById('downloadVCard').addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Juan Diego Velasquez
-N:Velasquez;Juan Diego;;;
-TITLE:Gerente General
-ORG:Renovamotor
-TEL;TYPE=CELL:+573136861590
-TEL;TYPE=WORK:+13322310148
-EMAIL;TYPE=WORK:juanvelasquez@renovamotor.com
-URL:https://www.renovamotor.com
-X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/juan-diego-velasquez-9a837428/
-X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/renovamotor.sa?locale=es_LA
-X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/renovamotorcol/
-END:VCARD`;
-
-            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'Juan_Diego_Velasquez_Gerente_Renovamotor.vcf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
-            
-            // Feedback visual
-            const originalText = e.target.innerHTML;
-            e.target.innerHTML = '<span class="btn-icon">✅</span><span class="btn-text">¡Descargado!</span>';
-            setTimeout(() => {
-                e.target.innerHTML = originalText;
-            }, 2000);
-        });
-
-        // Animación de entrada
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.contact-item').forEach((item, index) => {
-                setTimeout(() => {
-                    item.style.animation = 'fadeInUp 0.6s ease forwards';
-                }, index * 100);
-            });
-        });
-    </script>
-</body>
-</html>
+                        <a href="tel:+573136
