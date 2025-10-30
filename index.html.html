@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Diego Velasquez | Gerente - Renovamotor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(198, 40, 40, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 26, 26, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(198, 40, 40, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            width: 180px;
+            height: 180px;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(198, 40, 40, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(198, 40, 40, 0.2);
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .title {
+            font-size: 1.5em;
+            color: #c62828;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .company {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        .phone-reveal {
+            margin-top: 25px;
+            padding: 20px 30px;
+            background: rgba(198, 40, 40, 0.15);
+            border: 2px solid rgba(198, 40, 40, 0.3);
+            border-radius: 12px;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .phone-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .phone-reveal-content {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .phone-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .phone-icon {
+            font-size: 1.3em;
+        }
+
+        .content-section {
+            padding: 60px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #c62828;
+            display: inline-block;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 4px solid #c62828;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(198, 40, 40, 0.15);
+        }
+
+        .contact-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .contact-icon {
+            font-size: 1.4em;
+            color: #c62828;
+        }
+
+        .contact-value {
+            color: #1a1a1a;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: #c62828;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: width 0.4s ease;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #c62828 0%, #8b1a1a 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(198, 40, 40, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(198, 40, 40, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #c62828;
+            border: 2px solid #c62828;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: #c62828;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(198, 40, 40, 0.3);
+        }
+
+        .btn-icon {
+            font-size: 1.3em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .linkedin {
+            background: linear-gradient(135deg, #0077b5 0%, #005582 100%);
+        }
+
+        .facebook {
+            background: linear-gradient(135deg, #1877f2 0%, #0d5dbf 100%);
+        }
+
+        .instagram {
+            background: linear-gradient(135deg, #e4405f 0%, #c13584 50%, #833ab4 100%);
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #e0e0e0 50%, transparent 100%);
+            margin: 40px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 60px;
+            color: #666;
+            font-size: 0.95em;
+            background: #f8f9fa;
+        }
+
+        footer a {
+            color: #c62828;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .logo-wrapper {
+                margin: 0 auto;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+
+            .phone-reveal-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .content-section {
+                padding: 40px 30px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .social-media {
+                flex-direction: column;
+            }
+
+            .social-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 50px 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 2em;
+            }
+
+            .title {
+                font-size: 1.2em;
+            }
+
+            .logo-wrapper {
+                width: 140px;
+                height: 140px;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card animate-in">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="logo-wrapper">
+                        <img src="https://i.ibb.co/b5NmVFpR/images.jpg" alt="Renovamotor Logo" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Cdefs%3E%3CradialGradient id=%22rg%22%3E%3Cstop offset=%220%25%22 stop-color=%22%23dc2626%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%23991b1b%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d=%22M100 20L110 30 120 30 125 25 130 30 140 30 150 20 160 30 180 50 190 60 190 80 180 90 190 100 190 120 180 130 190 140 190 160 180 170 160 190 150 200 140 190 130 190 125 195 120 190 110 190 100 200 90 190 80 190 75 195 70 190 60 190 50 200 40 190 20 170 10 160 10 140 20 130 10 120 10 100 20 90 10 80 10 60 20 50 40 30 50 20 60 30 70 30 75 25 80 30 90 30z%22 fill=%22%23555%22/%3E%3Ccircle cx=%22100%22 cy=%22100%22 r=%2260%22 fill=%22url(%23rg)%22/%3E%3Ctext x=%22100%22 y=%22120%22 font-size=%2250%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-weight=%22bold%22%3ERM%3C/text%3E%3C/svg%3E';">
+                    </div>
+                    <div class="hero-text">
+                        <div class="title">Gerente General</div>
+                        <h1>Juan Diego Velasquez</h1>
+                        <div class="company">Renovamotor</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">Información de Contacto</h2>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-label">
+                            <span class="contact-icon">📧</span>
+                            Correo Electrónico
+                        </div>
+                        <div class="contact-value">
+                            <a href="mailto:juanvelasquez@renovamotor.com">juanvelasquez@renovamotor.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-label">
+                            <span class="contact-icon">🌐</span>
+                            Sitio Web Corporativo
+                        </div>
+                        <div class="contact-value">
+                            <a href="https://www.renovamotor.com" target="_blank">www.renovamotor.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-label">
+                            <span class="contact-icon">🏢</span>
+                            Organización
+                        </div>
+                        <div class="contact-value">
+                            Renovamotor
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-label">
+                            <span class="contact-icon">💼</span>
+                            Posición
+                        </div>
+                        <div class="contact-value">
+                            Gerente General
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3 class="cta-title">Conecta Conmigo</h3>
+                    
+                    <div class="social-media">
+                        <a href="https://www.linkedin.com/in/juan-diego-velasquez-9a837428/" target="_blank" class="social-btn linkedin">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://www.facebook.com/renovamotor.sa?locale=es_LA" target="_blank" class="social-btn facebook">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                            </svg>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/renovamotorcol/" target="_blank" class="social-btn instagram">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <a href="#" id="downloadVCard" class="btn btn-primary">
+                            <span class="btn-icon">💾</span>
+                            <span class="btn-text">Guardar en Agenda</span>
+                        </a>
+                    </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="action-buttons">
+                        <a href="tel:+573136861590" class="btn btn-secondary">
+                            <span class="btn-icon">📱</span>
+                            <span class="btn-text">Llamar Colombia</span>
+                        </a>
+                        <a href="tel:+13322310148" class="btn btn-secondary">
+                            <span class="btn-icon">☎️</span>
+                            <span class="btn-text">Llamar USA</span>
+                        </a>
+                        <a href="mailto:juanvelasquez@renovamotor.com" class="btn btn-secondary">
+                            <span class="btn-icon">✉️</span>
+                            <span class="btn-text">Enviar Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; 2025 <a href="https://www.renovamotor.com" target="_blank">Renovamotor</a> - Todos los derechos reservados</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Generar y descargar vCard
+        document.getElementById('downloadVCard').addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Juan Diego Velasquez
+N:Velasquez;Juan Diego;;;
+TITLE:Gerente General
+ORG:Renovamotor
+TEL;TYPE=CELL:+573136861590
+TEL;TYPE=WORK:+13322310148
+EMAIL;TYPE=WORK:juanvelasquez@renovamotor.com
+URL:https://www.renovamotor.com
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/juan-diego-velasquez-9a837428/
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/renovamotor.sa?locale=es_LA
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/renovamotorcol/
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Juan_Diego_Velasquez_Gerente_Renovamotor.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+            
+            // Feedback visual
+            const originalText = e.target.innerHTML;
+            e.target.innerHTML = '<span class="btn-icon">✅</span><span class="btn-text">¡Descargado!</span>';
+            setTimeout(() => {
+                e.target.innerHTML = originalText;
+            }, 2000);
+        });
+
+        // Animación de entrada
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.contact-item').forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.animation = 'fadeInUp 0.6s ease forwards';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
