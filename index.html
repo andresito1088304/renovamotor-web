@@ -282,6 +282,7 @@
             color: #1a1a1a;
             font-size: 1.2em;
             font-weight: 500;
+            word-break: break-word;
         }
 
         .contact-value a {
@@ -452,6 +453,14 @@
         }
 
         @media (max-width: 968px) {
+            body {
+                padding: 15px;
+            }
+
+            .hero {
+                padding: 50px 30px;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -460,10 +469,20 @@
 
             .logo-wrapper {
                 margin: 0 auto;
+                width: 150px;
+                height: 150px;
             }
 
             .hero-text h1 {
                 font-size: 2.5em;
+            }
+
+            .title {
+                font-size: 1.3em;
+            }
+
+            .company {
+                font-size: 1.1em;
             }
 
             .hero-actions {
@@ -480,6 +499,23 @@
 
             .content-section {
                 padding: 40px 30px;
+            }
+
+            .section-title {
+                font-size: 1.7em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cta-section {
+                padding: 40px 30px;
+            }
+
+            .cta-title {
+                font-size: 1.5em;
             }
 
             .action-buttons {
@@ -499,11 +535,23 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            footer {
+                padding: 30px 30px;
+            }
         }
 
         @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+
+            .card {
+                border-radius: 16px;
+            }
+
             .hero {
-                padding: 50px 30px;
+                padding: 40px 20px;
             }
 
             .hero-text h1 {
@@ -511,20 +559,102 @@
             }
 
             .title {
-                font-size: 1.2em;
+                font-size: 1.1em;
+                letter-spacing: 1px;
+            }
+
+            .company {
+                font-size: 1em;
             }
 
             .logo-wrapper {
-                width: 140px;
-                height: 140px;
+                width: 120px;
+                height: 120px;
+            }
+
+            .hero-actions {
+                gap: 12px;
+            }
+
+            .hero-btn {
+                padding: 16px 20px;
+                gap: 12px;
+            }
+
+            .hero-btn .btn-icon {
+                font-size: 1.5em;
+            }
+
+            .hero-btn .btn-label {
+                font-size: 0.75em;
+            }
+
+            .hero-btn .btn-value {
+                font-size: 0.95em;
             }
 
             .content-section {
                 padding: 30px 20px;
             }
 
+            .section-title {
+                font-size: 1.5em;
+                margin-bottom: 25px;
+            }
+
+            .contact-item {
+                padding: 20px;
+            }
+
+            .contact-label {
+                font-size: 0.8em;
+            }
+
+            .contact-value {
+                font-size: 1em;
+            }
+
             .cta-section {
                 padding: 30px 20px;
+            }
+
+            .cta-title {
+                font-size: 1.3em;
+                margin-bottom: 20px;
+            }
+
+            .social-btn {
+                padding: 14px 24px;
+                font-size: 1em;
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 1em;
+            }
+
+            footer {
+                padding: 25px 20px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-text h1 {
+                font-size: 1.6em;
+            }
+
+            .title {
+                font-size: 1em;
+            }
+
+            .logo-wrapper {
+                width: 100px;
+                height: 100px;
+            }
+
+            .hero-btn .btn-value {
+                font-size: 0.85em;
             }
         }
 
@@ -636,7 +766,7 @@
                             Portafolio
                         </div>
                         <div class="contact-value">
-                            <a href="URL_DE_TU_PDF_AQUI" target="_blank">Ver Catálogo PDF</a>
+                            <a href="https://drive.google.com/file/d/1XjMJGMJ1CB-GV24UTP8RtHAoqdv6XjBY/view" target="_blank">Ver Catálogo PDF</a>
                         </div>
                     </div>
                 </div>
@@ -662,12 +792,3 @@
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
                             <span>Instagram</span>
-                        </a>
-                    </div>
-                    
-                   
-                    
-                    <div class="divider"></div>
-                    
-                    <div class="action-buttons">
-                        <a href="tel:+573136
